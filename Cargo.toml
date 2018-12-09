@@ -1,0 +1,10 @@
+[package]
+name = "ruuvi-collector-rs"
+version = "0.1.0"
+authors = ["deploy"]
+edition = "2018"
+
+[dependencies]
+byteorder = "*"
+mac = "*"
+rumble = { path = "../rumble" }
