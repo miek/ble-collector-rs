@@ -45,7 +45,7 @@ fn decode_ruuvi_format_3(buf: &mut std::io::Read) -> Option<RuuviPacket> {
         true => 1.0,
         false => -1.0,
     };
-    let temperature = (temp_int & !(0x80)) as f64 * sign + temp_hundredths as f64 / 100.0;
+    let temperature = sign * ((temp_int & !(0x80)) as f64 + temp_hundredths as f64 / 100.0);
     let pressure = pressure as f64 + 50000.0;
     let voltage = battery_mv as f64 / 1000.0;
 
