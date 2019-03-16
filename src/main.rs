@@ -1,17 +1,24 @@
 extern crate ble_advert_struct;
 extern crate rumble;
+extern crate rumqtt;
 extern crate serde_json;
  
 use std::collections::HashMap;
+use std::env;
 use std::thread;
 use std::time::{Duration, SystemTime};
 
 use ble_advert_struct::BLEAdvert;
 use rumble::bluez::manager::Manager;
 use rumble::api::{Central, Peripheral};
+use rumqtt::{MqttClient, MqttOptions, QoS};
 
 pub fn main() {
-    println!("ble collector");
+    let mqtt_host = env::var("MQTT_HOST").unwrap();
+    let mqtt_topic = env::var("MQTT_TOPIC").unwrap();
+    let mqtt_options = MqttOptions::new("ble-collector", mqtt_host, 1883);
+    let (mut mqtt_client, _notifications) = MqttClient::start(mqtt_options).unwrap();
+
     let manager = Manager::new().unwrap();
  
     // get the first bluetooth adapter
@@ -49,8 +56,7 @@ pub fn main() {
                         listener: "changeme".to_string(),
                     };
                     let json = serde_json::to_string(&advert).unwrap();
-                    println!("{}", json);
-                    // TODO: punt to mqtt
+                    mqtt_client.publish(mqtt_topic.clone(), QoS::AtLeastOnce, false, json).unwrap();
                 }
             }
             *ls = prop.discovery_count;
