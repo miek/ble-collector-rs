@@ -1,11 +1,8 @@
 [package]
-name = "ruuvi-collector-rs"
+name = "ble-collector-rs"
 version = "0.1.0"
 authors = ["deploy"]
 edition = "2018"
 
 [dependencies]
-byteorder = "*"
-influx_db_client = "*"
-mac = "*"
 rumble = { path = "../rumble" }
