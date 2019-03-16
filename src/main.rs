@@ -16,6 +16,8 @@ use rumqtt::{MqttClient, MqttOptions, QoS};
 pub fn main() {
     let mqtt_host = env::var("MQTT_HOST").unwrap();
     let mqtt_topic = env::var("MQTT_TOPIC").unwrap();
+    let listener = env::var("BALENA_DEVICE_NAME_AT_INIT").unwrap_or("unknown".to_string());
+
     let mqtt_options = MqttOptions::new("ble-collector", mqtt_host, 1883);
     let (mut mqtt_client, _notifications) = MqttClient::start(mqtt_options).unwrap();
 
@@ -52,8 +54,7 @@ pub fn main() {
                         manufacturer_data: data,
                         mac: prop.address.to_string(),
                         time: SystemTime::now(),
-                        // TODO: get local hostname
-                        listener: "changeme".to_string(),
+                        listener: listener.clone(),
                     };
                     let json = serde_json::to_string(&advert).unwrap();
                     mqtt_client.publish(mqtt_topic.clone(), QoS::AtLeastOnce, false, json).unwrap();
