@@ -6,5 +6,5 @@ edition = "2018"
 
 [dependencies]
 ble-advert-struct = { git = "https://github.com/miek/ble-advert-struct.git" }
-rumble = { git = "https://github.com/miek/rumble.git" }
+rumble = { git = "https://github.com/miek/rumble.git", branch = "scan-options" }
 serde_json = "1.0.39"

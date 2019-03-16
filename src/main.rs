@@ -24,6 +24,11 @@ pub fn main() {
  
     // connect to the adapter
     let central = adapter.connect().unwrap();
+
+    // Passive scan
+    central.active(false);
+    // Don't filter duplicates
+    central.filter_duplicates(false);
  
     // start scanning for devices
     central.start_scan().unwrap();
