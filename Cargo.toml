@@ -5,4 +5,6 @@ authors = ["deploy"]
 edition = "2018"
 
 [dependencies]
+ble-advert-struct = { git = "https://github.com/miek/ble-advert-struct.git" }
 rumble = { path = "../rumble" }
+serde_json = "1.0.39"
