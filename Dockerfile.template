@@ -90,5 +90,7 @@ COPY --from=builder /build/app/target/release/ble-collector-rs .
 # Copy other folders required by the application. Example:
 # COPY --from=builder /build/app/assets assets
 
+ENV RUST_BACKTRACE=1
+
 # Launch application
 CMD ["./ble-collector-rs", "%%RESIN_MACHINE_NAME%%"]
