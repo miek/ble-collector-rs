@@ -92,7 +92,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "ble-advert-struct"
 version = "0.1.0"
-source = "git+https://github.com/miek/ble-advert-struct.git#e593ec780bc416f4b3f383aacd0f6133426f5fda"
+source = "git+https://github.com/miek/ble-advert-struct.git#f5bd7275fe52976fe596b89ab9bfe34592150173"
 dependencies = [
  "base64 0.10.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "base64-serde 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -106,7 +106,7 @@ name = "ble-collector-rs"
 version = "0.1.0"
 dependencies = [
  "ble-advert-struct 0.1.0 (git+https://github.com/miek/ble-advert-struct.git)",
- "rumble 0.3.0 (git+https://github.com/miek/rumble.git?branch=scan-options)",
+ "rumble 0.3.0 (git+https://github.com/mwylde/rumble.git)",
  "rumqtt 0.30.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_json 1.0.39 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -769,7 +769,7 @@ dependencies = [
 [[package]]
 name = "rumble"
 version = "0.3.0"
-source = "git+https://github.com/miek/rumble.git?branch=scan-options#4dd637be7a40843e869bb3de8e4af62116d01691"
+source = "git+https://github.com/mwylde/rumble.git#fe951504f7271067109cb675639a5d911683b5fb"
 dependencies = [
  "backtrace 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "bitflags 1.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1356,7 +1356,7 @@ dependencies = [
 "checksum regex 1.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "53ee8cfdddb2e0291adfb9f13d31d3bbe0a03c9a402c01b1e24188d86c35b24f"
 "checksum regex-syntax 0.6.5 (registry+https://github.com/rust-lang/crates.io-index)" = "8c2f35eedad5295fdf00a63d7d4b238135723f92b434ec06774dad15c7ab0861"
 "checksum ring 0.13.5 (registry+https://github.com/rust-lang/crates.io-index)" = "2c4db68a2e35f3497146b7e4563df7d4773a2433230c5e4b448328e31740458a"
-"checksum rumble 0.3.0 (git+https://github.com/miek/rumble.git?branch=scan-options)" = "<none>"
+"checksum rumble 0.3.0 (git+https://github.com/mwylde/rumble.git)" = "<none>"
 "checksum rumqtt 0.30.1 (registry+https://github.com/rust-lang/crates.io-index)" = "beda95afe12940a77d9738b56401419867dc38ff99267cac6232989851b2d11c"
 "checksum rustc-demangle 0.1.9 (registry+https://github.com/rust-lang/crates.io-index)" = "bcfe5b13211b4d78e5c2cadfebd7769197d95c639c35a50057eb4c05de811395"
 "checksum rustc-serialize 0.3.24 (registry+https://github.com/rust-lang/crates.io-index)" = "dcf128d1287d2ea9d80910b5f1120d0b8eede3fbf1abe91c40d39ea7d51e6fda"
